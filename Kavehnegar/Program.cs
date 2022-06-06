@@ -23,6 +23,18 @@ services.AddScoped<DbContext, ApplicationContext>();
 services.AddScoped<IMyEntityManager, MyEntityManager>();
 #endregion
 
+
+#region فعال سازی CORS
+services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+}));
+#endregion
+
+
+
 #region swagger
 services.AddSwaggerGen(c =>
 {
@@ -89,6 +101,7 @@ app.UseSwagger(x => x.SerializeAsV2 = true);
 
 
 
+app.UseCors("MyPolicy");
 
 app.UseEndpoints(endpoints =>
 {

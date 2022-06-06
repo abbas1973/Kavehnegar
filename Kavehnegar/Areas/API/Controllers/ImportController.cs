@@ -12,6 +12,7 @@ namespace Kavehnegar.Areas.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyPolicy")]
     [Description("آپلود فایل اکسل")]
     public class ImportController : ControllerBase
     {
