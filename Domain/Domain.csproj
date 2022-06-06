@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\BlogSystem\**" />
+    <Compile Remove="Entities\PaymentSystem\**" />
+    <Compile Remove="Entities\ShopingSystem\**" />
+    <Compile Remove="Enums\**" />
+    <EmbeddedResource Remove="Entities\BlogSystem\**" />
+    <EmbeddedResource Remove="Entities\PaymentSystem\**" />
+    <EmbeddedResource Remove="Entities\ShopingSystem\**" />
+    <EmbeddedResource Remove="Enums\**" />
+    <None Remove="Entities\BlogSystem\**" />
+    <None Remove="Entities\PaymentSystem\**" />
+    <None Remove="Entities\ShopingSystem\**" />
+    <None Remove="Enums\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Config.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Config.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Config.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Config.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
